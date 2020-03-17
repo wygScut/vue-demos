@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <p>v-if的值是{{yes}}</p>
+        <p v-if="yes">所以这一行显示出来了</p>
+        <p>倒计时:{{time}}</p>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+
+    <script type="text/javascript">
+    var app=new Vue({//配置对象
+        el:'#app',//element:选择器，选中了id这里
+        data:{
+           yes:false,
+           time:3,
+        },
+    })
+    function change(){
+        console.log("进入change函数了！");
+        if(app.yes){
+            app.yes=false;
+        }
+        else{
+            app.yes=true;
+        }
+    
+    }
+    function djs(){
+        console.log("进入倒计时函数了！");
+        if(app.time==0){
+            app.time=3;
+        }
+        else{
+            app.time--;
+        }
+    }
+    setInterval("djs()",1000);
+    setInterval("change()",4000);
+   
+    </script>
+</body>
